@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
-
-const notes = [
-    {
-        id: uuid.v4(),
-        task: 'Learn React'
-    },
-    {
-        id: uuid.v4(),
-        task: 'Do Laundry'
-    }
-];
+import Note from './Note';
 
 class Notes extends Component {
 
     render(){
         return(
             <ul>
-                {notes.map(note => <li key={note.id}>{note.task}</li>)}
+                {console.log(this.props.notes)}
+                <input
+                    placeholder='Type Your Name'
+                />
+                {this.props.notes.map(note => <li key={note.id}><Note note={note} deleteNote={this.props.deleteNote} />
+                {/* <button onClick={this.props.deleteNote(note.id)}>x</button> */}
+                </li>)}
             </ul>
         );
     }
